@@ -12,9 +12,8 @@ cask "claude-switcher" do
   app "Claude Switcher.app"
 
   # The app isn't notarized yet, so clear the quarantine flag Gatekeeper would block it with.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Claude Switcher.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Claude Switcher.app"]
   end
 
   uninstall quit: "dev.amanverma.claude-switcher"
