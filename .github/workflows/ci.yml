@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link this checkout as the tap
+        run: |
+          TAPS="$(brew --repository)/Library/Taps/amanv8060"
+          mkdir -p "$TAPS"
+          ln -s "$GITHUB_WORKSPACE" "$TAPS/homebrew-tap"
+      - name: Style
+        run: brew style amanv8060/tap
+      - name: Audit
+        run: brew audit --cask --strict amanv8060/tap/claude-switcher
