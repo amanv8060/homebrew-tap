@@ -1,6 +1,6 @@
 cask "claude-switcher" do
-  version "1.0.1"
-  sha256 "df055af88733a1ef46b5cbb5d992362f97c956039113343d4ad0d36cfaab262e"
+  version "1.1.0"
+  sha256 "da933370044e8095a9a13f3046ba37a67fee14388da9651b77693e5c4c085981"
 
   url "https://github.com/amanv8060/claude-switcher/releases/download/v#{version}/Claude-Switcher-v#{version}.zip"
   name "Claude Switcher"
